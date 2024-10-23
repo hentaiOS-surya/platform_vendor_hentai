@@ -6,3 +6,5 @@ client_id
 */*.sh
 */*.py
 *.py
+signing/keys/*
+!signing/keys/BUILD

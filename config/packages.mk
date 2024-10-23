@@ -14,5 +14,5 @@
 # limitations under the License.
 #
 
-PRODUCT_PACKAGES += \
-    helluvaUpdater
+#PRODUCT_PACKAGES += \
+#    helluvaUpdater

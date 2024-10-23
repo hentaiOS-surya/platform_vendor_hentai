@@ -13,5 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# We modify several neverallows, so let the build proceed
+ifeq ($(TARGET_BUILD_VARIANT),eng)
+SELINUX_IGNORE_NEVERALLOWS := true
+endif
+
 # Rules for QCOM targets
 include $(TOPDIR)vendor/hentai/build/core/qcom_target.mk
