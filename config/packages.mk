@@ -14,5 +14,6 @@
 # limitations under the License.
 #
 
-#PRODUCT_PACKAGES += \
-#    helluvaUpdater
+PRODUCT_PACKAGES += \
+   apns-conf.xml \
+   helluvaUpdater

@@ -20,6 +20,16 @@ BUILD_ID_DATE ?= $(shell date +%m%d%H%M)
 
 PLATFORM_HENTAI_RELEASE := Vallhound
 
+ifneq (eng,$(TARGET_BUILD_VARIANT))
+ifneq (,$(wildcard vendor/hentai/signing/keys/releasekey.pk8))
+PRODUCT_DEFAULT_DEV_CERTIFICATE := vendor/hentai/signing/keys/releasekey
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.oem_unlock_supported=1
+endif
+ifneq (,$(wildcard vendor/hentai/signing/keys/otakey.x509.pem))
+PRODUCT_OTA_PUBLIC_KEYS := vendor/hentai/signing/keys/otakey.x509.pem
+endif
+endif
+
 ifeq ($(TARGET_BUILD_VARIANT),user)
     PROD_VERSION += $(TARGET_PRODUCT)-$(PLATFORM_HENTAI_RELEASE)-ota-$(BUILD_ID_LC)-REL.$(BUILD_ID_DATE)
 else
